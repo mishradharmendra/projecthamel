@@ -103,7 +103,13 @@ public class InvoiceBean implements InvoiceRemote {
 
     @Remove
     public void cancelInvoice() {
-        setInvoice(null);
+        this.setCartTotal(0);
+        for (Item i : getInvoice().getItems()) {
+            Item it = itemService.findItem(i.getBarcode());
+            it.setQuantity(it.getQuantity() + 1);
+            itemService.updateItem(it.getId(), it.getName(), it.getQuantity(), it.getPrice(), it.getBarcode(), it.getMinQuantity(), it.getImage());
+        }
+        setInvoice(new Invoice());
     }
 
     public void addCustomer(int customerID) {
