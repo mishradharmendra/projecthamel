@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <context-param>
+        <param-name>com.sun.faces.verifyObjects</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>com.sun.faces.validateXml</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    
+    <filter>
+        <filter-name>Extensions Filter</filter-name>
+        <filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
+        <init-param>
+            <description>
+                Set the Limit for the file size to be uploaded
+                Format: 10 - 10bytes
+                        10k - 10kb
+                        10m - 10mb
+                        1g - 1gb
+            </description>
+            <param-name>uploadMaxFileSize</param-name>
+            <param-value>1m</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Extensions Filter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>faces/index.jsp</welcome-file>
+    </welcome-file-list>   
+
+
+    <security-constraint>
+        <display-name>Constraint1</display-name>
+        <web-resource-collection>
+            <web-resource-name>Admin Resources</web-resource-name>
+            <description/>
+            <url-pattern>/faces/admin/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>HEAD</http-method>
+            <http-method>PUT</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>admin</role-name>
+            </auth-constraint>
+        </security-constraint>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>file</realm-name>
+        </login-config>
+    <security-role>
+        <description/>
+        <role-name>admin</role-name>
+    </security-role>
+    </web-app>
