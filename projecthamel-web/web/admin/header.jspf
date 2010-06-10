@@ -1,0 +1,9 @@
+<div id="hdr">
+    <nav>
+        <ul>
+            <li><h:commandLink immediate="true" action="home" value="Home"/></li>
+            <li><h:commandLink immediate="true" action="admin" value="Admin Home"/></li>
+        </ul>
+    </nav>    
+</div>    
+

@@ -1,0 +1,25 @@
+    <div id="hdr">
+        <nav>
+            <ul>
+                <li><h:commandLink immediate="true" action="home" value="Home"/></li>
+                <li> <h:commandLink immediate="true" action="#{CustomerManagedBean.viewAccount}" value="My Account"/></li>
+                <li> <h:commandLink immediate="true" action="#{CustomerManagedBean.createCustomer}" value="Signup"/></li>
+                <li> <h:commandLink immediate="true" action="#{CustomerManagedBean.loginCustomer}" value="#{CustomerManagedBean.isLoggedIn}"/></li>
+                <li> <h:commandLink immediate="true" action="admin" value="Admin"/></li>
+            </ul>
+        </nav>
+        <div class="clear"></div>
+        <h4>Welcome, <h:outputLabel styleClass="Body-Small" value="#{CustomerManagedBean.lgCustomer.name}"/> </h4>
+    </div>
+    <div id="cart">
+        <div id="carttext">            
+            <h:commandButton immediate="true" image="images/iconAddCart.gif" action="#{InvoiceManagedBean.showCart}" />
+        </div>
+        <div id="cartitems">
+            <h:outputText value="#{InvoiceManagedBean.invoiceService.cartTotal} Items"/>
+        </div>
+        <div id="cartmessage"></div>
+
+    </div>
+    <div class="clear"></div>
+

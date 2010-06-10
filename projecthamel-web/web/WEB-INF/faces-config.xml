@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="1.2" 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+    <!-- Customer navigation start -->
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>customer_create</from-outcome>
+            <to-view-id>/createCustomer.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>customer_view</from-outcome>
+            <to-view-id>/admin/listCustomers.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>customer_remove</from-outcome>
+            <to-view-id>/admin/listCustomers.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>my_account</from-outcome>
+            <to-view-id>/viewAccount.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/userLogin.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- Customer navigation end -->
+    <!-- Item navigation start -->
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>item_create</from-outcome>
+            <to-view-id>/admin/createItem.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>items_view</from-outcome>
+            <to-view-id>/admin/listItems.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>customer_edit</from-outcome>
+            <to-view-id>/admin/editItem.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>item_remove</from-outcome>
+            <to-view-id>/admin/listItems.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+
+<!-- Item navigation end -->
+
+<!-- Invoice/cart navigation start -->
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>cart</from-outcome>
+            <to-view-id>/cart.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<!-- Invoice/cart navigation end -->
+
+
+    <navigation-rule>
+        <from-view-id>/*</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/home.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>admin</from-outcome>
+            <to-view-id>/admin/index.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+  
+
+    <managed-bean>
+        <managed-bean-name>CustomerManagedBean</managed-bean-name>
+        <managed-bean-class>com.store.managedbeans.CustomerManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>ItemManagedBean</managed-bean-name>
+        <managed-bean-class>com.store.managedbeans.ItemManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>InvoiceManagedBean</managed-bean-name>
+        <managed-bean-class>com.store.managedbeans.InvoiceManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <!-- Util -->
+    <validator>
+        <validator-id>validator</validator-id>
+        <validator-class>com.store.util.Validation</validator-class>
+    </validator>
+    
+</faces-config>
+
