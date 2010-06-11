@@ -4,7 +4,7 @@
  */
 package com.store.service;
 
-import com.factory.entities.Shipping;
+import com.factory.entities.ItemOrder;
 import java.sql.SQLException;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
@@ -36,7 +36,7 @@ public class InvoiceMessageBean implements MessageListener {
             System.out.println("Inside onmessage......................"+message);
             ObjectMessage objectMessage = (ObjectMessage) message;
             int barcode = (Integer) objectMessage.getObject();
-            Shipping ship = new Shipping();
+            ItemOrder ship = new ItemOrder();
             ship.setBarcode(barcode);
             em.persist(ship);
         } catch (JMSException jmse) {
