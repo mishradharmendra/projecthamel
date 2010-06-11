@@ -1,36 +1,33 @@
+package com.factory.entities;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package com.factory.entities;
-
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author trana
  */
 @Entity
-public class CompanyBranch implements Serializable {
+public class Company implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @ManyToOne
-    private Company company;
+    private int companyID;
+    private String name;
     private String city;
     private String state;
     private String phone;
     private String zip;
     private String contactPerson;
-
 
     public int getId() {
         return id;
@@ -40,19 +37,33 @@ public class CompanyBranch implements Serializable {
         this.id = id;
     }
 
-
     /**
-     * @return the company
+     * @return the name
      */
-    public Company getCompany() {
-        return company;
+    public String getName() {
+        return name;
     }
 
     /**
-     * @param company the company to set
+     * @param name the name to set
      */
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+   
+    /**
+     * @return the companyID
+     */
+    public int getCompanyID() {
+        return companyID;
+    }
+
+    /**
+     * @param companyID the companyID to set
+     */
+    public void setCompanyID(int companyID) {
+        this.companyID = companyID;
     }
 
     /**
@@ -125,8 +136,7 @@ public class CompanyBranch implements Serializable {
         this.contactPerson = contactPerson;
     }
 
-
-    @Override
+     @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) id;
@@ -136,10 +146,10 @@ public class CompanyBranch implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CompanyBranch)) {
+        if (!(object instanceof Company)) {
             return false;
         }
-        CompanyBranch other = (CompanyBranch) object;
+        Company other = (Company) object;
         if (this.id != other.id) {
             return false;
         }
@@ -148,7 +158,6 @@ public class CompanyBranch implements Serializable {
 
     @Override
     public String toString() {
-        return "com.factory.entities.CompanyBranch[id=" + id + "]";
+        return "com.factory.entities.Company[id=" + id + "]";
     }
-
 }

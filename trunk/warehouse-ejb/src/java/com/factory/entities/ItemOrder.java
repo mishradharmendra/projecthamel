@@ -22,8 +22,7 @@ public class ItemOrder implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int barcode;
-    private int companyID;
-    private int companyBranchID;
+    private int companyID;    
     private int totalItemsToOrder;
     
 
@@ -86,21 +85,7 @@ public class ItemOrder implements Serializable {
      */
     public void setCompanyID(int companyID) {
         this.companyID = companyID;
-    }
-
-    /**
-     * @return the companyBranchID
-     */
-    public int getCompanyBranchID() {
-        return companyBranchID;
-    }
-
-    /**
-     * @param companyBranchID the companyBranchID to set
-     */
-    public void setCompanyBranchID(int companyBranchID) {
-        this.companyBranchID = companyBranchID;
-    }
+    }  
 
     /**
      * @return the totalItemsToOrder

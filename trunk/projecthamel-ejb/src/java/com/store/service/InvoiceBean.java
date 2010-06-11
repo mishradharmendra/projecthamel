@@ -90,7 +90,10 @@ public class InvoiceBean implements InvoiceRemote {
                             Session.AUTO_ACKNOWLEDGE);
                     MessageProducer producer = session.createProducer(destination);
                     ObjectMessage message = session.createObjectMessage();
-                    message.setObject(it.getBarcode());
+                    ArrayList list = new ArrayList();
+                    list.add(it.getBarcode());
+                    list.add(it.getItemsToOrder());
+                    message.setObject(list);
                     producer.send(message);
                     session.close();
                     connection.close();
