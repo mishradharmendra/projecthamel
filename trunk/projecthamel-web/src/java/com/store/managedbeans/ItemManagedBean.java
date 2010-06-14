@@ -94,8 +94,8 @@ public class ItemManagedBean {
             System.out.println("The image was not provided!.. Uploaded File Name is " + uploadedFile);
         }
         try {
-            itemService.updateItem(item.getId(), item.getName(), item.getQuantity(),
-                    item.getPrice(), item.getBarcode(), item.getMinQuantity(), item.getImage());
+            itemService.updateItem(item.getId(), item.getName(), item.getQuantity(),item.getPrice(), 
+                    item.getBarcode(), item.getMinQuantity(), item.getImage(), item.getItemsToOrder(), item.getShippingCost());
             message.addSuccessMessage("This item has been updated successfully.");
         } catch (Exception ex) {
             message.addErrorMessage(ex.getLocalizedMessage());

@@ -15,8 +15,7 @@
                 <h:form>
                     <%@include file="header.jspf" %><br><br><br><br>
                     <h:messages styleClass="ErrorMsg" layout="table"/>
-                    <div align="center">
-                        
+                    <div align="center">                        
                         <h:dataTable title="Customer Listing" headerClass="TableHeader"  value="#{InvoiceManagedBean.invoiceService.invoice.items}" var="item" border="0" cellpadding="3" cellspacing="0"
                                      rowClasses="even-row, odd-row"  rules="all" style="border:solid 1px">
                              <h:column>
@@ -51,7 +50,6 @@
                         
                         <h:commandButton value="Clear Cart" action="#{InvoiceManagedBean.clearCart}"/>
                     </div>
-
                 </h:form>
             </f:view>
         </div>

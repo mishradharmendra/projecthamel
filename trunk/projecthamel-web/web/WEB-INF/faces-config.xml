@@ -143,6 +143,7 @@
         <validator-id>validator</validator-id>
         <validator-class>com.store.util.Validation</validator-class>
     </validator>
-    
+
 </faces-config>
+
 

@@ -14,7 +14,7 @@
                 <h:form>
                     <%@include file="header.jspf" %>
                     <div align="center">
-                         <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                         <h4>Item Listing</h4>
                         <h:dataTable title="Item Listing" headerClass="TableHeader"  value="#{ItemManagedBean.itemList}" var="item" border="0" cellpadding="3" cellspacing="0"
                                      rowClasses="even-row, odd-row" frame="border"  rules="all" style="border:solid 1px">
@@ -42,9 +42,9 @@
                                 </f:facet>
                                 <h:outputText value="#{item.price}">
                                     <f:convertNumber maxFractionDigits="2"
-                                                 groupingUsed="true"
-                                                 currencySymbol="$"
-                                                 type="currency"/>
+                                                     groupingUsed="true"
+                                                     currencySymbol="$"
+                                                     type="currency"/>
                                 </h:outputText>
                             </h:column>
                             <h:column>
@@ -59,11 +59,34 @@
                                 </f:facet>
                                 <h:outputText value="#{item.minQuantity}"/>
                             </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Order Quantity"/>
+                                </f:facet>
+                                <h:outputText value="#{item.itemsToOrder}"/>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Shipping Cost"/>
+                                </f:facet>
+                                <h:outputText value="#{item.shippingCost}">
+                                    <f:convertNumber maxFractionDigits="2"
+                                                     groupingUsed="true"
+                                                     currencySymbol="$"
+                                                     type="currency"/>
+                                </h:outputText>
+
+                            </h:column>
+
                             <h:column>
                                 <h:commandLink action="#{ItemManagedBean.editItem}" value="Edit">
                                     <f:param name="currentItemBarcode" value="#{item.barcode}"/>
                                 </h:commandLink>
                             </h:column>
+
+
                             <h:column>
                                 <h:commandLink action="#{ItemManagedBean.removeItem}" value="Remove">
                                     <f:param name="currentItemID" value="#{item.id}"/>
@@ -72,7 +95,7 @@
                         </h:dataTable>
                         <br>
                         <h:commandLink action="#{ItemManagedBean.createItem}"
-                                           value="Add Item"/>
+                                       value="Add Item"/>
                     </div>
                 </h:form>
             </f:view>
