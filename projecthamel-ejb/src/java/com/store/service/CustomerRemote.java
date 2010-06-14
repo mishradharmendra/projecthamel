@@ -20,7 +20,8 @@ public interface CustomerRemote {
     void removeCustomer(int customerID);
     List<Customer> findAllCustomer();
     Customer findCustomer(int customerID);
-    void updateCustomer(int customerID,String name, String email, String username, String password);
+    void updateCustomer(int customerID, String name, String email, String username,
+            String password,String street, String city, String state, int zip, String phone);
     int findCustomerByUsername(String username);
     Customer findCustomerByUsernamePassword(String username, String password);
     

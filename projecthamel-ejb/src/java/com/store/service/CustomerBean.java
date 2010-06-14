@@ -49,7 +49,8 @@ public class CustomerBean implements CustomerRemote {
 
     }
 
-    public void updateCustomer(int customerID, String name, String email, String username, String password) {
+    public void updateCustomer(int customerID, String name, String email, String username, 
+            String password,String street, String city, String state, int zip, String phone) {
 
         Customer cust = em.find(Customer.class, customerID);
         cust.setName(name);

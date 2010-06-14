@@ -19,5 +19,6 @@ public interface ItemRemote {
     void removeItem(int itemID);
     Item findItem(int barcode);
     List<Item> findAllItems();
-    Item updateItem(int itemID, String name, int quantity, double price, int barcode, int minQuantity, String image);
+    Item updateItem(int itemID, String name, int quantity, double price, int barcode, int minQuantity, 
+            String image, int itemsToOrder, double shippingCost);
 }
