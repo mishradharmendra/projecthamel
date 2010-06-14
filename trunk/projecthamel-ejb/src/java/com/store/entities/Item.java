@@ -29,7 +29,7 @@ public class Item implements Serializable {
     private int minQuantity;
     private String image;
     private int itemsToOrder;
-    private int shippingCost;
+    private double shippingCost;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -172,14 +172,14 @@ public class Item implements Serializable {
     /**
      * @return the shippingCost
      */
-    public int getShippingCost() {
+    public double getShippingCost() {
         return shippingCost;
     }
 
     /**
      * @param shippingCost the shippingCost to set
      */
-    public void setShippingCost(int shippingCost) {
+    public void setShippingCost(double shippingCost) {
         this.shippingCost = shippingCost;
     }
 

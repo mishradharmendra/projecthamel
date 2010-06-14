@@ -52,7 +52,8 @@ public class InvoiceBean implements InvoiceRemote {
             System.out.println("No item available..........");
         } else {
             it.setQuantity(it.getQuantity() - 1);
-            it = (Item) itemService.updateItem(it.getId(), it.getName(), it.getQuantity(), it.getPrice(), it.getBarcode(), it.getMinQuantity(), it.getImage());
+            it = (Item) itemService.updateItem(it.getId(), it.getName(), it.getQuantity(), it.getPrice(), it.getBarcode(),
+                    it.getMinQuantity(), it.getImage(), it.getItemsToOrder(), it.getShippingCost());
             if(getInvoice().getItems()==null){
                 List<Item> items = new ArrayList<Item>();
                 items.add(it);
@@ -70,7 +71,8 @@ public class InvoiceBean implements InvoiceRemote {
     public void removeItem(int barcode) {
         Item it = itemService.findItem(barcode);
         it.setQuantity(it.getQuantity() + 1);
-        itemService.updateItem(it.getId(), it.getName(), it.getQuantity(), it.getPrice(), it.getBarcode(), it.getMinQuantity(), it.getImage());
+        itemService.updateItem(it.getId(), it.getName(), it.getQuantity(), it.getPrice(), it.getBarcode(), 
+                it.getMinQuantity(), it.getImage(), it.getItemsToOrder(), it.getShippingCost());
         getInvoice().getItems().remove(it);
         getInvoice().setTotalCost(getInvoice().getTotalCost()- it.getPrice());
         this.setCartTotal(this.getCartTotal()-1);
@@ -110,7 +112,8 @@ public class InvoiceBean implements InvoiceRemote {
         for (Item i : getInvoice().getItems()) {
             Item it = itemService.findItem(i.getBarcode());
             it.setQuantity(it.getQuantity() + 1);
-            itemService.updateItem(it.getId(), it.getName(), it.getQuantity(), it.getPrice(), it.getBarcode(), it.getMinQuantity(), it.getImage());
+            itemService.updateItem(it.getId(), it.getName(), it.getQuantity(), it.getPrice(),
+                    it.getBarcode(), it.getMinQuantity(), it.getImage(), it.getItemsToOrder(), it.getShippingCost());
         }
         setInvoice(new Invoice());
     }

@@ -45,7 +45,7 @@ public class ItemBean implements ItemRemote {
     }
 
     public Item updateItem(int itemID, String name, int quantity, double price, int barcode,
-            int minQuantity, String image) {
+            int minQuantity, String image, int itemsToOrder, double shippingCost) {
         Item item = (Item) em.find(Item.class, itemID);
         item.setName(name);
         item.setBarcode(barcode);
@@ -53,9 +53,10 @@ public class ItemBean implements ItemRemote {
         item.setQuantity(quantity);
         item.setMinQuantity(minQuantity);
         item.setImage(image);
-        em.merge(item);      
+        item.setItemsToOrder(itemsToOrder);
+        item.setShippingCost(shippingCost);
+        em.merge(item);
         return item;
     }
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method" or "Web Service > Add Operation")
+   
 }
