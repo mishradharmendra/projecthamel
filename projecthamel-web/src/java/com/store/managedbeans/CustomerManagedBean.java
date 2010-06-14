@@ -56,13 +56,14 @@ public class CustomerManagedBean {
 
     public String edit() {
         try {
-            customerService.updateCustomer(lgCustomer.getId(), lgCustomer.getName(), lgCustomer.getEmail(), lgCustomer.getUsername(), lgCustomer.getPassword());
-            message.addSuccessMessage("Your account has been updated successfully.");
+            customerService.updateCustomer(lgCustomer.getId(), lgCustomer.getName(), lgCustomer.getEmail(), lgCustomer.getUsername(),
+                    lgCustomer.getPassword(), lgCustomer.getStreet(), lgCustomer.getCity(), lgCustomer.getState(),
+                    lgCustomer.getZip(), lgCustomer.getPhone());
         } catch (Exception ex) {
             message.addErrorMessage(ex.getLocalizedMessage());
         }
-
-        return "customer_view";
+        message.addSuccessMessage("Your account has been updated successfully.");
+        return "home";
     }
 
     public String loginCustomer() {
@@ -75,12 +76,12 @@ public class CustomerManagedBean {
         }
     }
 
-    public String create() {       
+    public String create() {
         FacesContext context = FacesContext.getCurrentInstance();
         int count = customerService.findCustomerByUsername(customer.getUsername());
         if (count > 0) {
             //message.addErrorMessage("Username already exists.");
-            FacesMessage msg = new FacesMessage();            
+            FacesMessage msg = new FacesMessage();
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             msg.setSummary("Username already exists");
             msg.setDetail("Username already exists");
@@ -89,10 +90,11 @@ public class CustomerManagedBean {
         }
         try {
             customerService.addCustomer(customer);
-            message.addSuccessMessage("Customer was successfully submitted.");
         } catch (Exception ex) {
             message.addErrorMessage(ex.getLocalizedMessage());
+            return "customer_create";
         }
+        message.addSuccessMessage("Your account has been successfully created. Please Login to shop!");
         return "home";
     }
 

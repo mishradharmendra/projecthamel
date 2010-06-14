@@ -18,8 +18,7 @@
             <f:view>
                 <h:form>
                     <%@include file="header.jspf" %><br><br><br><br>
-                     <h:messages layout="table"/>
-                    <h4>Select from the list of latest items in the store..</h4>
+                      <h:messages styleClass="ErrorMsg" layout="table"/>                    
                     <table>
                         <tr>
                             <td width="10%">
