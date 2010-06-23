@@ -2,17 +2,17 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.store.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,13 +20,14 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Invoice implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @ManyToOne
     private Customer customer;
-    @OneToMany
+    @ManyToMany(mappedBy="items", cascade=CascadeType.ALL)
     private List<Item> items;
     private double totalCost;
 
@@ -66,7 +67,7 @@ public class Invoice implements Serializable {
         this.items = items;
     }
 
-        @Override
+    @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) id;

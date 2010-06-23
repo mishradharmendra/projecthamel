@@ -116,6 +116,7 @@ public class InvoiceBean implements InvoiceRemote {
                     it.getBarcode(), it.getMinQuantity(), it.getImage(), it.getItemsToOrder(), it.getShippingCost());
         }
         setInvoice(new Invoice());
+        setCartTotal(0);
     }
 
     public void addCustomer(int customerID) {
