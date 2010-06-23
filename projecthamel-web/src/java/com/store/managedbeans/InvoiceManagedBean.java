@@ -48,13 +48,7 @@ public class InvoiceManagedBean {
             message.addErrorMessage("You need to login first.");
             return "login";
         }
-        try {
-            invoiceService.saveInvoice();
-        } catch (Exception e) {
-        }
-        message.addSuccessMessage("You have sucessfully purchased!");
-        return "home";
-
+        return "confirmation";
     }
 
     public String clearCart() {

@@ -95,8 +95,21 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>confirmation</from-outcome>
+            <to-view-id>/confirmation.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 
-
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>orderItems</from-outcome>
+            <to-view-id>/confirmation.jsp</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 
 <!-- Invoice/cart navigation end -->
 
@@ -138,6 +151,11 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
+    <managed-bean>
+        <managed-bean-name>OrderManagedBean</managed-bean-name>
+        <managed-bean-class>com.store.managedbeans.OrderManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
     <!-- Util -->
     <validator>
         <validator-id>validator</validator-id>
