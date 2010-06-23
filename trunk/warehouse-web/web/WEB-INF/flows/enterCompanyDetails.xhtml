@@ -1,0 +1,53 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:sf="http://www.springframework.org/tags/faces"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="content">
+
+<div class="section">
+	<h2>Create Company</h2>	
+	<h:form id="companyForm">
+	<fieldset>
+                <div class="field">
+			<div class="label">Company ID:</div>
+			<div class="output">#{company.companyID}</div>
+		</div>
+		<div class="field">
+			<div class="label">Name:</div>
+			<div class="output">#{company.name}</div>
+		</div>
+		<div class="field">
+			<div class="label">Street:</div>
+			<div class="output">#{company.street}</div>
+		</div>
+		<div class="field">
+			<div class="label">City, State:</div>
+			<div class="output">#{company.city}, #{company.state}</div>
+		</div>
+		<div class="field">
+			<div class="label">Zip:</div>
+			<div class="output">#{company.zip}</div>
+		</div>
+		<div class="field">
+			<div class="label">Phone:</div>
+			<div class="output">#{company.phone}</div>
+		</div>
+                <div class="field">
+			<div class="label">Contact Person:</div>
+			<div class="output">#{company.contactPerson}</div>
+		</div>
+            
+		<div class="buttonGroup">
+		<h:commandButton id="confirm" value="Confirm" action="confirm"/>&#160;
+    		<h:commandButton id="cancel" value="Cancel" action="cancel"/>
+		</div>
+	</fieldset>
+	</h:form>
+</div>
+
+</ui:define>
+</ui:composition>
