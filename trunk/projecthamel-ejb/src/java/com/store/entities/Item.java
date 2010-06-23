@@ -2,14 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.store.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 
 /**
@@ -17,11 +19,10 @@ import javax.persistence.NamedQuery;
  * @author rosharma
  */
 @Entity
-@NamedQuery(
-name = "findAllItems",
+@NamedQuery(name = "findAllItems",
 query = "SELECT c FROM Item c")
 public class Item implements Serializable {
-    
+
     private String name;
     private int quantity;
     private double price;
@@ -31,6 +32,9 @@ public class Item implements Serializable {
     private int itemsToOrder;
     private double shippingCost;
 
+    @ManyToMany(mappedBy="incoices", cascade = CascadeType.ALL)
+    private List<Invoice> invoices;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,8 +48,7 @@ public class Item implements Serializable {
         this.id = id;
     }
 
-
-       /**
+    /**
      * @return the name
      */
     public String getName() {
@@ -143,7 +146,6 @@ public class Item implements Serializable {
         this.itemsToOrder = itemsToOrder;
     }
 
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -183,4 +185,17 @@ public class Item implements Serializable {
         this.shippingCost = shippingCost;
     }
 
+    /**
+     * @return the invoices
+     */
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    /**
+     * @param invoices the invoices to set
+     */
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
 }
