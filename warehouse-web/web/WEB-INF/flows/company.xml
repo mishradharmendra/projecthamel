@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+        <persistence-context/>
+	
+
+        <on-start>
+		<evaluate expression="companyService.addCompany(hotelId, name, street, city, state, phone, zip,  contactPerson)" result="flowScope.company" />
+	</on-start>
+
+        <view-state id="enterCompanyDetails" model="company">
+		<transition on="confirm" to="companyConfirmed" />
+		<transition on="cancel" to="companyCancelled" bind="false" />
+	</view-state>
+
+        <end-state id="companyConfirmed" commit="true" />
+
+	<end-state id="companyCancelled" />
+	
+</flow>
