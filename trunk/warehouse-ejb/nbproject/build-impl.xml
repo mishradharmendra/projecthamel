@@ -350,9 +350,16 @@ exists or setup the property manually. For example like this:
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-    <target depends="compile" name="library-inclusion-in-archive"/>
+    <target depends="compile" name="library-inclusion-in-archive">
+        <copyfiles files="${file.reference.org.springframework.context-2.5.5.A.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.org.springframework.core-2.5.5.A.jar}" todir="${build.classes.dir}"/>
+    </target>
     <target depends="compile" name="library-inclusion-in-manifest">
-        <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
+        <copyfiles files="${file.reference.org.springframework.context-2.5.5.A.jar}" manifestproperty="manifest.file.reference.org.springframework.context-2.5.5.A.jar" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.org.springframework.core-2.5.5.A.jar}" manifestproperty="manifest.file.reference.org.springframework.core-2.5.5.A.jar" todir="${dist.ear.dir}"/>
+        <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
+            <attribute name="Class-Path" value="${manifest.file.reference.org.springframework.context-2.5.5.A.jar} ${manifest.file.reference.org.springframework.core-2.5.5.A.jar} "/>
+        </manifest>
     </target>
     <target name="-copy-meta-inf">
         <copy todir="${classes.dir}">

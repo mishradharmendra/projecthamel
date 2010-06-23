@@ -23,6 +23,7 @@ public class Company implements Serializable {
     private int id;
     private int companyID;
     private String name;
+    private String street;
     private String city;
     private String state;
     private String phone;
@@ -159,5 +160,19 @@ public class Company implements Serializable {
     @Override
     public String toString() {
         return "com.factory.entities.Company[id=" + id + "]";
+    }
+
+    /**
+     * @return the street
+     */
+    public String getStreet() {
+        return street;
+    }
+
+    /**
+     * @param street the street to set
+     */
+    public void setStreet(String street) {
+        this.street = street;
     }
 }
