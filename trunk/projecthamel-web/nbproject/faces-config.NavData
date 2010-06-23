@@ -6,14 +6,15 @@
         <Node id="createCustomer.jsp" x="150" y="150" zoom="true"/>
         <Node id="index.jsp" x="150" y="600" zoom="true"/>
         <Node id="cart.jsp" x="1150" y="150" zoom="true"/>
-        <Node id="admin/index.jsp" x="400" y="300" zoom="true"/>
-        <Node id="home.jsp" x="487" y="205" zoom="true"/>
-        <Node id="admin/editItem.jsp" x="650" y="150" zoom="true"/>
         <Node id="admin/listCustomers.jsp" x="150" y="300" zoom="true"/>
         <Node id="*" x="400" y="450" zoom="true"/>
         <Node id="viewAccount.jsp" x="150" y="450" zoom="true"/>
-        <Node id="admin/listItems.jsp" x="650" y="300" zoom="true"/>
         <Node id="admin/createItem.jsp" x="900" y="300" zoom="true"/>
+        <Node id="admin/index.jsp" x="400" y="300" zoom="true"/>
+        <Node id="home.jsp" x="487" y="205" zoom="true"/>
+        <Node id="admin/editItem.jsp" x="650" y="150" zoom="true"/>
+        <Node id="admin/listItems.jsp" x="650" y="300" zoom="true"/>
+        <Node id="confirmation.jsp" x="650" y="450" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

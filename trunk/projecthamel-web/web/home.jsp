@@ -18,7 +18,7 @@
             <f:view>
                 <h:form>
                     <%@include file="header.jspf" %><br><br><br><br>
-                      <h:messages styleClass="ErrorMsg" layout="table"/>                    
+                    <h:messages styleClass="ErrorMsg" layout="table"/>
                     <table>
                         <tr>
                             <td width="10%">
@@ -47,7 +47,7 @@
                                         <h:graphicImage width="100px" height="100px" value="../images/#{item.image}"/><br>
                                         <h:outputText value="#{item.name}"/><br>
                                         <h:outputText value="#{item.price}"/><br>
-                                         <h:commandLink value="Add" action="#{InvoiceManagedBean.addItem}">
+                                        <h:commandLink value="Add" action="#{InvoiceManagedBean.addItem}">
                                             <f:param name="currentItemBarcode" value="#{item.barcode}"/>
                                         </h:commandLink>
                                     </h:column>
