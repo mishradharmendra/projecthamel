@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/inc/baseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/inc/header.jsp" />
+		<put-attribute name="menu" value="/inc/menu.jsp" />
+		<put-attribute name="body" value="" />
+                <put-attribute name="images" value="/inc/images.jsp" />
+		<put-attribute name="footer" value="/inc/footer.jsp" />
+	</definition>	
+        <definition name="/welcome.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Portfolio Home" />
+		<put-attribute name="body" value="/welcome.jsp" />
+	</definition>
+
+        <definition name="/loginform.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Portfolio Login" />
+		<put-attribute name="body" value="/Login.jsp" />
+	</definition>
+
+        <definition name="/viewportfolios.tiles" extends="baseLayout">
+		<put-attribute name="title" value="View Portfolios" />
+		<put-attribute name="body" value="/ViewPortfolios.jsp" />
+	</definition>
+
+        <definition name="/error.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Portfolio Error Page" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+
+        <definition name="/adminportfolio.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Administration Portfolio" />
+		<put-attribute name="body" value="/AdminPortfolio.jsp" />
+	</definition>
+
+         <definition name="/imageuploadform.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Portfolio Image Upload" />
+		<put-attribute name="body" value="/ImageUploadForm.jsp" />
+	</definition>
+
+     
+
+        <definition name="/imageadded.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Portfolio Image Added" />
+		<put-attribute name="body" value="/ImageAdded.jsp" />
+	</definition>
+
+        
+
+        <definition name="/imageremoved.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Portfolio Image Removed" />
+		<put-attribute name="body" value="/ImageRemoved.jsp" />
+	</definition>
+
+
+</tiles-definitions>
