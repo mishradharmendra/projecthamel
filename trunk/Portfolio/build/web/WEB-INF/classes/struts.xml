@@ -1,0 +1,86 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: trana -->
+ 
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources"
+		value="ApplicationResources" />
+
+
+    <package name="default" extends="struts-default" namespace="/">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        <global-results>
+            <result name="error" type="tiles">/error.tiles</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception"	result="error" />
+        </global-exception-mappings>
+        <action name="welcome">
+            <result type="tiles">/welcome.tiles</result>
+        </action>
+        <action name="loginform">
+            <result type="tiles">/loginform.tiles</result>
+        </action>
+        <action name="login" class="com.d2.action.Login">
+            <result name="success" type="tiles">/viewportfolios.tiles</result>
+            <result name="input" type="tiles">/loginform.tiles</result>
+        </action>
+    </package>
+
+
+    <package name="secure" namespace="/secure" extends="struts-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+
+		<!-- We need to define the authentication interceptor and configure a new stack, based upon the
+			builtin default stack.  We will simply add our authentication stack to the top of the default
+			stack and make it the default intercptor reference for the actions in this package.
+		-->
+        <interceptors>
+            <interceptor name="authenticationInterceptor" class="com.d2.interceptor.AuthenticationInterceptor" />
+
+            <interceptor-stack name="secureStack">
+                <interceptor-ref name="authenticationInterceptor" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+
+        </interceptors>
+        <default-interceptor-ref name="secureStack" />
+        <global-results>
+            <result name="login" type="redirect">../loginform.action</result>
+            <result name="error" type="tiles">/error.tiles</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error" />
+        </global-exception-mappings>
+
+        <action name="AdminPortfolio">
+            <result type="tiles">/adminportfolio.tiles</result>
+        </action>
+
+        <action name="AddImage">
+            <result type="tiles">/imageuploadform.tiles</result>
+        </action>
+
+        <action name="ImageUpload" class="com.d2.action.ImageUpload">
+            <param name="fileSystemPath">./portfolioFS/</param>
+            <result type="tiles">/imageadded.tiles</result>
+            <result name="input" type="tiles">/imageuploadform.tiles</result>
+        </action>
+
+        <action name="RemoveImage">
+            <result type="tiles">/imageremoved.tiles</result>
+        </action>
+    </package>
+
+</struts>

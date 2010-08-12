@@ -1,0 +1,46 @@
+/* 
+    Document   : style
+    Created on : Aug 12, 2010, 10:42:26 AM
+    Author     : trana
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+body{
+    font-family:Calibri;
+    font-size:11pt;
+}
+.header {
+background:transparent url(../images/bgHeader.gif) no-repeat scroll 0 0;
+height:83px;
+position:relative;
+color:white;
+font-size:14pt;
+font-family:Serif;
+}
+.footer {
+background:transparent url(../images/bgCopyRight.gif) no-repeat scroll 0 0;
+color:#FFFFFF;
+height:19px;
+text-align:center;
+}
+
+.menu{
+background:#E0EEEE;
+color:#FFFFFF;
+width:100px;
+}
+.images{
+    background: url(../images/Struts1.bmp) no-repeat scroll 0 0;
+    position:relative;
+    height:80px;
+    width:100px;
+}
+
+
+
+
